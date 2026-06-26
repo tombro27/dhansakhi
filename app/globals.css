@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/*
+  DhanSakhi — IDBI Innovate 2026 (Digital Wealth Management)
+  Brand system: deep banking navy + IDBI teal-green + wealth gold.
+*/
+
+@theme {
+  /* Brand palette */
+  --color-navy-950: #06182e;
+  --color-navy-900: #0a2540;
+  --color-navy-800: #0f3055;
+  --color-navy-700: #143b69;
+  --color-navy-600: #1b4d85;
+
+  --color-teal-700: #006d54;
+  --color-teal-600: #00936b;
+  --color-teal-500: #00b07f;
+  --color-teal-400: #2fd4a4;
+
+  --color-gold-600: #c8881a;
+  --color-gold-500: #e6a817;
+  --color-gold-400: #f4c14e;
+
+  --color-ink-900: #0b1623;
+  --color-ink-700: #2b3a4d;
+  --color-ink-500: #5b6b80;
+  --color-ink-300: #9aa8ba;
+
+  --color-mist-50: #f6f9fc;
+  --color-mist-100: #eef3f8;
+  --color-mist-200: #dfe8f1;
+
+  --color-positive: #18a957;
+  --color-negative: #e0524d;
+  --color-warning: #e6a817;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-card: 1rem;
+}
+
+:root {
+  --background: #f6f9fc;
+  --foreground: #0b1623;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Brand gradients & helpers */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, #06182e 0%, #0a2540 45%, #0f3a5c 100%);
+}
+.bg-teal-gradient {
+  background: linear-gradient(135deg, #00936b 0%, #00b07f 100%);
+}
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #e6a817 0%, #f4c14e 100%);
+}
+.text-gradient-teal {
+  background: linear-gradient(120deg, #00b07f, #2fd4a4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--color-mist-200);
+  border-radius: var(--radius-card);
+  box-shadow: 0 1px 2px rgba(10, 37, 64, 0.04), 0 8px 24px rgba(10, 37, 64, 0.05);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+/* Thin scrollbar for chat panes */
+.scroll-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: var(--color-mist-200); border-radius: 999px; }
+.scroll-thin::-webkit-scrollbar-track { background: transparent; }
+
+@keyframes fadeup {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeup { animation: fadeup 0.4s ease-out both; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+.typing-dot { animation: pulse-dot 1.2s infinite; }

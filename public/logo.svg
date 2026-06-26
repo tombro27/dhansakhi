@@ -1,0 +1,19 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DhanSakhi logo">
+  <defs>
+    <linearGradient id="ds-bg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0a2540"/>
+      <stop offset="1" stop-color="#0f3a5c"/>
+    </linearGradient>
+    <linearGradient id="ds-leaf" x1="14" y1="34" x2="34" y2="12" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00936b"/>
+      <stop offset="1" stop-color="#2fd4a4"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="12" fill="url(#ds-bg)"/>
+  <!-- upward growth arc -->
+  <path d="M12 32 C 18 22, 26 18, 36 13" stroke="url(#ds-leaf)" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+  <!-- arrow head -->
+  <path d="M30 12.5 L37 12 L36.2 19" stroke="#2fd4a4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- rupee mark -->
+  <path d="M16 17 H26 M16 21 H26 M24 17 C24 23, 18 23, 18 23 L26 31" stroke="#f4c14e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
