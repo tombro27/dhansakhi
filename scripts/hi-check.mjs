@@ -1,0 +1,11 @@
+import puppeteer from "puppeteer";
+const OUT="/tmp/claude-1000/-home-imart-indiamart-hackathons-IDBI-Innovate-26/796b5ab5-1afe-4d3a-926d-5f7a92fd8dbb/scratchpad/hi-check.png";
+const b=await puppeteer.launch({headless:"new",args:["--no-sandbox","--disable-setuid-sandbox"]});
+const p=await b.newPage(); await p.setViewport({width:1280,height:720});
+await p.evaluateOnNewDocument(s=>localStorage.setItem("dhansakhi.demo.v1",JSON.stringify(s)),{personaId:"meena",aaConnected:true,customRiskAnswers:null,language:"en"});
+await p.goto("https://idbi-innovate-26.vercel.app/advisor",{waitUntil:"networkidle2",timeout:30000});
+await p.select("select","hi").catch(()=>{});
+await new Promise(r=>setTimeout(r,400));
+await p.evaluate(()=>{const x=[...document.querySelectorAll("button")].find(b=>/retirement goal/i.test(b.textContent||""));x&&x.click();});
+await new Promise(r=>setTimeout(r,6000));
+await p.screenshot({path:OUT}); await b.close(); console.log("ok",OUT);

@@ -1,29 +1,29 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { GoogleGenAI } from "@google/genai";
 
 /**
- * Claude integration for DhanSakhi.
+ * Gemini integration for DhanSakhi.
  *
  * Design goal: the deployed prototype must ALWAYS respond, even when no
- * ANTHROPIC_API_KEY is configured (e.g. a fresh Vercel deploy a judge clicks).
- * When a key is present we use real Claude; otherwise callers fall back to
+ * GEMINI_API_KEY is configured (e.g. a fresh Vercel deploy a judge clicks).
+ * When a key is present we use Google Gemini; otherwise callers fall back to
  * curated deterministic responses so the demo never breaks.
+ *
+ * Get a free key from Google AI Studio: https://aistudio.google.com/apikey
  */
 
-// Model IDs (authoritative, from the runtime environment):
-// Opus 4.8: claude-opus-4-8 · Sonnet 4.6: claude-sonnet-4-6 · Haiku 4.5: claude-haiku-4-5-20251001
+// Gemini model IDs (configurable via env). gemini-2.5-flash is fast + low-cost,
+// ideal for a conversational advisor; bump to gemini-2.5-pro for deeper reasoning.
 export const MODELS = {
-  // Conversational advisor — fast, high quality.
-  advisor: process.env.CLAUDE_ADVISOR_MODEL || "claude-sonnet-4-6",
-  // Deeper reasoning for portfolio rationale / explainability.
-  reasoning: process.env.CLAUDE_REASONING_MODEL || "claude-sonnet-4-6",
+  advisor: process.env.GEMINI_ADVISOR_MODEL || "gemini-2.5-flash",
+  reasoning: process.env.GEMINI_REASONING_MODEL || "gemini-2.5-flash",
 } as const;
 
-export const aiEnabled = Boolean(process.env.ANTHROPIC_API_KEY);
+export const aiEnabled = Boolean(process.env.GEMINI_API_KEY);
 
-let client: Anthropic | null = null;
-export function getClient(): Anthropic | null {
+let client: GoogleGenAI | null = null;
+export function getClient(): GoogleGenAI | null {
   if (!aiEnabled) return null;
-  if (!client) client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  if (!client) client = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   return client;
 }
 
@@ -43,20 +43,26 @@ export async function complete(opts: {
   const c = getClient();
   if (!c) return null;
   try {
-    const res = await c.messages.create({
+    const res = await c.models.generateContent({
       model: opts.model || MODELS.advisor,
-      max_tokens: opts.maxTokens ?? 900,
-      temperature: opts.temperature ?? 0.4,
-      system: opts.system,
-      messages: opts.messages.map((m) => ({ role: m.role, content: m.content })),
+      // Gemini represents the assistant turn with the "model" role.
+      contents: opts.messages.map((m) => ({
+        role: m.role === "assistant" ? "model" : "user",
+        parts: [{ text: m.content }],
+      })),
+      config: {
+        systemInstruction: opts.system,
+        temperature: opts.temperature ?? 0.4,
+        maxOutputTokens: opts.maxTokens ?? 900,
+        // Disable "thinking" so the token budget goes to the actual reply
+        // (keeps the advisor fast and avoids empty responses).
+        thinkingConfig: { thinkingBudget: 0 },
+      },
     });
-    const text = res.content
-      .map((b) => (b.type === "text" ? b.text : ""))
-      .join("\n")
-      .trim();
+    const text = (res.text ?? "").trim();
     return text || null;
   } catch (err) {
-    console.error("[DhanSakhi] Claude call failed, using fallback:", err);
+    console.error("[DhanSakhi] Gemini call failed, using fallback:", err);
     return null;
   }
 }

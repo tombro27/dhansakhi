@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# demo-video intermediates (final mp4 is kept; raw + tts audio are not)
+/deck/video/_raw.mp4
+/scripts/video/audio/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

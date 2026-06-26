@@ -51,7 +51,7 @@ add_text(s[0], [
     "Product: DhanSakhi — an AI Robo-Advisor for IDBI Bank",
     "",
     "Team name:  Team DhanSakhi",
-    "Team leader name:  [Team Leader Name]",
+    "Team leader name:  Prakhar Singh Tomar",
     "Members:  [Member 2], [Member 3], [Member 4]",
     "Problem Statement:  Digital Wealth Management",
 ], top=1.5, size=15, color=NAVY)
@@ -62,7 +62,7 @@ add_text(s[1], [
     "• One-tap RBI Account Aggregator consent pulls ALL their holdings (bank, MF, demat, EPF, NPS, insurance).",
     "• AI builds goal-based plans and an explainable, suitability-aware portfolio.",
     "• Every recommendation carries a plain-language 'why' — no black boxes.",
-    "• A vernacular conversational advisor (Claude) answers anything, in 6 languages.",
+    "• A vernacular conversational advisor (Google Gemini) answers anything, in 6 languages.",
     "• Goals map to real IDBI + LIC products (FD, MF, NPS via IDBI POP, LIC insurance/annuity).",
     "",
     "Why now: AA covers 2.61B accounts / 252.9M users (Dec 2025); IDBI already owns the distribution shelf and LIC (~49% owner). Advice today is HNI-only — DhanSakhi democratises it.",
@@ -89,7 +89,7 @@ add_text(s[3], [
     "• AI risk profiling → Conservative / Moderate / Aggressive, explained",
     "• Goal-based planning (retirement, education, home, emergency) with SIP-to-goal math",
     "• Explainable portfolio advice + rebalancing ('why this, why now')",
-    "• Vernacular conversational advisor (Claude, 6 languages, suitability-aware)",
+    "• Vernacular conversational advisor (Gemini, 6 languages, suitability-aware)",
     "• IDBI + LIC cross-sell engine (next-best-product mapped to goal gaps)",
     "• Trust & compliance layer (SEBI guardrails, DPDP consent, no-PII)",
     "• Cross-sell ROI model (benchmark-anchored revenue projection for IDBI)",
@@ -117,7 +117,7 @@ add_text(s[6], [
     "      ▼ HTTPS",
     "Next.js 16 App Router on Vercel — Onboarding · Dashboard · Goals · Explainable Advice · Advisor · Cross-sell (React 19 + Tailwind + Recharts)",
     "      ▼ server route handlers",
-    "AA Connector (simulated FIP→FIU consent)  |  Recommendation Engine (deterministic TS)  |  Claude API (advisor + explainability, no-key fallback)  |  IDBI + LIC Catalog",
+    "AA Connector (simulated FIP→FIU consent)  |  Recommendation Engine (deterministic TS)  |  Gemini API (advisor + explainability, no-key fallback)  |  IDBI + LIC Catalog",
     "      ▼",
     "Synthetic data store (no real PII).  POC path → IDBI core banking + live AA FIU + SEBI-RIA review workflow.",
 ])
@@ -125,7 +125,7 @@ add_text(s[6], [
 # 8 Technologies
 add_text(s[7], [
     "Frontend:  Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Recharts",
-    "AI & logic:  Claude (Opus 4.8 / Sonnet 4.6) via Anthropic SDK; deterministic TS engine (risk, goals, rebalancing); explainability layer",
+    "AI & logic:  Google Gemini (2.5 Flash) via Google Gen AI SDK; deterministic TS engine (risk, goals, rebalancing); explainability layer",
     "Integrations & infra:  RBI Account Aggregator (FIU), IDBI core + LIC/NPS catalog, DigiLocker/Aadhaar KYC, Vercel",
     "Compliance:  SEBI IA guardrails, DPDP Act 2023, synthetic/no-PII, Bhashini-ready vernacular",
 ])
@@ -135,9 +135,9 @@ add_text(s[8], [
     "Prototype (done): this app — ≈ ₹0 (open-source + free tiers)",
     "Pilot / Sandbox (3–4 months): live AA FIU, IDBI core + LIC APIs, RIA workflow, security review — ₹35–55 L",
     "Production (6–9 months): scale infra, vernacular (Bhashini), DPO/DPIA, mobile app — ₹1.2–1.8 Cr",
-    "Run-rate: cloud + Claude API + AA consent fees + support — ₹20–40 / active user / year",
+    "Run-rate: cloud + Gemini API + AA consent fees + support — ₹20–40 / active user / year",
     "",
-    "Mostly variable, usage-based costs; AA + Claude + Vercel keep fixed costs low. Payback driven by cross-sell uplift.",
+    "Mostly variable, usage-based costs; AA + Gemini (free tier available) + Vercel keep fixed costs low. Payback driven by cross-sell uplift.",
 ])
 
 # 10 Snapshots
@@ -155,7 +155,7 @@ add_text(s[10], [
     "Prototype metrics:",
     "• 360° aggregation (6–8 institutions, simulated): < 2 s",
     "• Explainability coverage of recommendations: 100%",
-    "• Advisor reply latency: ~1–3 s (Claude) / < 50 ms (fallback)",
+    "• Advisor reply latency: ~1–3 s (Gemini) / < 50 ms (fallback)",
     "• Languages supported: 6   •   Uptime without API key (graceful fallback): 100%",
     "",
     "Projected impact (industry benchmarks, labelled as projections):",
@@ -175,13 +175,13 @@ add_text(s[11], [
 
 # 13 Links
 add_text(s[12], [
-    "GitHub Public Repository:   https://github.com/<your-username>/dhansakhi",
+    "GitHub Public Repository:   github.com/tombro27/dhansakhi",
     "",
-    "Demo Video Link (3 minutes):   https://<your-demo-video-link>",
+    "Final Product Link (live):   https://idbi-innovate-26.vercel.app",
     "",
-    "Final Product Link (live):   https://<your-vercel-app>.vercel.app",
+    "Demo Video Link (3 minutes):   https://drive.google.com/file/d/1-ZobKRuBWrzYHAqD9f_Xko-KFBlIHDsC/view",
     "",
-    "→ Replace placeholders with your final Vercel URL, GitHub repo, and recorded demo before submitting.",
+    "→ All submission links are live: GitHub repository, deployment, and demo video.",
 ], top=1.6, size=14, color=NAVY)
 
 # 14 (closing) if exists

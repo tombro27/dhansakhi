@@ -13,10 +13,10 @@ const LOCALIZED_GREETING: Record<Language, string> = {
 function note(language: Language): string {
   return language === "en"
     ? ""
-    : `\n\n_(Demo response in English — connect the Claude API for full ${language.toUpperCase()} replies.)_`;
+    : `\n\n_(Demo response in English — connect the Gemini API for full ${language.toUpperCase()} replies.)_`;
 }
 
-/** Intent-aware, numbers-grounded fallback used when Claude is unavailable. */
+/** Intent-aware, numbers-grounded fallback used when Gemini is unavailable. */
 export function fallbackAdvisorReply(userText: string, ctx: AdvisorContext, language: Language): string {
   const t = userText.toLowerCase();
   const g = LOCALIZED_GREETING[language] ?? "";
@@ -60,7 +60,7 @@ export function fallbackAdvisorReply(userText: string, ctx: AdvisorContext, lang
   return `${g}${body}${note(language)}`;
 }
 
-/** Templated explainability narrative (always available, even without Claude). */
+/** Templated explainability narrative (always available, even without Gemini). */
 export function fallbackExplain(ctx: AdvisorContext, language: Language): string {
   const moves = ctx.rebalance.filter((r) => r.action !== "Hold");
   const lines = [

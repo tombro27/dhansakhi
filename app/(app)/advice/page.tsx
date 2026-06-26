@@ -63,7 +63,7 @@ export default function AdvicePage() {
         <p className="text-sm text-ink-500">Every recommendation comes with a plain-language “why”. No black boxes.</p>
       </div>
 
-      {/* Claude narrative */}
+      {/* Gemini narrative */}
       <Card className="border-teal-500/30 bg-gradient-to-br from-white to-teal-600/5">
         <div className="mb-2 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -73,8 +73,8 @@ export default function AdvicePage() {
             <h2 className="text-base font-bold text-navy-900">Why this plan suits you</h2>
           </div>
           <div className="flex items-center gap-2">
-            <Badge tone={source === "claude" ? "teal" : "neutral"}>
-              <Bot className="h-3.5 w-3.5" /> {source === "claude" ? "Claude" : "Demo response"}
+            <Badge tone={source === "gemini" ? "teal" : "neutral"}>
+              <Bot className="h-3.5 w-3.5" /> {source === "gemini" ? "Gemini" : "Demo response"}
             </Badge>
             <Button variant="ghost" onClick={fetchNarrative} className="px-2.5 py-1.5">
               <RefreshCw className={`h-3.5 w-3.5 ${loading ? "animate-spin" : ""}`} />

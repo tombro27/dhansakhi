@@ -6,7 +6,7 @@
 DhanSakhi (धन-सखी, *"wealth friend"*) is an **AA-native, explainable, vernacular AI wealth
 co-pilot** for IDBI Bank customers. It aggregates a customer's *entire* financial life via the
 RBI Account Aggregator framework, builds goal-based plans, gives **explainable** portfolio advice,
-talks to the customer in **plain, regional language** (Claude-powered), and cross-sells the
+talks to the customer in **plain, regional language** (Gemini-powered), and cross-sells the
 **IDBI + LIC** product shelf as genuine goal-completion — all inside the trust of a bank.
 
 ---
@@ -56,7 +56,7 @@ complete without spreading demo depth too thin.
 
 1. **AA-native, zero-upload 360° aggregation** — one-tap RBI AA consent pulls bank + MF folios +
    demat + EPF + NPS. No CAS/PDF imports (the friction INDmoney/HDFC SmartWealth still carry).
-2. **Explainable AI advice** — every recommendation & rebalance ships a Claude-generated,
+2. **Explainable AI advice** — every recommendation & rebalance ships a Gemini-generated,
    profile-linked, *vernacular* "why this, why now, what changed" rationale. Beats black-box
    curation (Scripbox) and rule-based recs (everyone) **and** maps to SEBI transparency.
 3. **Bank+LIC goal-completion cross-sell** — goals map to *real* products: Retirement → NPS (IDBI
@@ -73,12 +73,12 @@ complete without spreading demo depth too thin.
 | 4 | AI risk profiling | Quiz → Conservative/Moderate/Aggressive, with rationale |
 | 5 | Goal-based planning | Retirement, child education, home, emergency; SIP-to-goal math |
 | 6 | Explainable portfolio advice + rebalancing | Target vs current allocation, "why" cards |
-| 7 | Vernacular conversational advisor | Claude-powered, EN/HI/TA/MR/BN/TE toggle, with fallback |
+| 7 | Vernacular conversational advisor | Gemini-powered, EN/HI/TA/MR/BN/TE toggle, with fallback |
 | 8 | IDBI+LIC cross-sell engine | Next-best-product mapped to goal gaps |
 | 9 | Compliance & privacy layer | SEBI guardrails, DPDP consent, synthetic-no-PII badge |
 | 10 | Cross-sell ROI model | Benchmark-anchored revenue projection for IDBI |
 
-## 6. Architecture (Next.js + Vercel + Claude)
+## 6. Architecture (Next.js + Vercel + Gemini)
 
 ```
 Customer (web/mobile)
@@ -90,7 +90,7 @@ Next.js 16 App Router  ──────────────┐
       │ (route handlers / API)       │
       ▼                              │
   ┌──────────────┬──────────────┬───────────────┬─────────────────┐
-  │ AA Connector │ Recommendation│ Claude API     │ IDBI/LIC Product │
+  │ AA Connector │ Recommendation│ Gemini API     │ IDBI/LIC Product │
   │ (simulated)  │ Engine (TS)   │ (advisor +     │ Catalog          │
   │ FIP→FIU,     │ risk, alloc,  │  explainability)│ (FD/MF/NPS/LIC)  │
   │ consent      │ goals, cross- │  with no-key    │                  │
@@ -104,8 +104,8 @@ Next.js 16 App Router  ──────────────┐
 - **AA Connector (simulated)** mirrors the real FIP→AA→FIU consent flow + consent artefact JSON.
 - **Recommendation Engine** is deterministic TypeScript (risk scoring, target allocation,
   rebalancing deltas, SIP-to-goal future-value math, cross-sell mapping). No AI needed → reliable.
-- **Claude** powers the *conversational advisor* and the *natural-language explainability*; it
-  degrades gracefully to curated responses when `ANTHROPIC_API_KEY` is absent (deploy always works).
+- **Google Gemini** powers the *conversational advisor* and the *natural-language explainability*; it
+  degrades gracefully to curated responses when `GEMINI_API_KEY` is absent (deploy always works).
 - **Compliance by design**: advice = "decision-support + education surfacing IDBI-RIA-vetted
   recommendations", human-in-the-loop, suitability logged, synthetic data only.
 
@@ -129,7 +129,7 @@ AA-driven full-portfolio visibility → a credible incremental-revenue story (se
 
 - AA aggregation simulated < 2s for a 6-institution portfolio.
 - Explainability: every recommendation carries a profile-linked rationale (100% coverage).
-- Advisor latency: Claude responses ~1–3s; deterministic fallback < 50ms.
+- Advisor latency: Gemini responses ~1–3s; deterministic fallback < 50ms.
 - Vernacular PoC evidence (literature): +41% task completion, +86% session length vs English-only.
 
 ## 10. Roadmap

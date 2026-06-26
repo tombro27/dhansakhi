@@ -105,7 +105,7 @@
     <p class="lead">An AA-native, explainable, vernacular AI robo-advisor — aggregating a customer's entire financial life, planning their goals, and advising them in their own language, inside the trust of a bank.</p>
     <div class="meta">
       <div><div class="k">Team</div><div class="v">Team DhanSakhi</div></div>
-      <div><div class="k">Team Leader</div><div class="v">[Team Leader Name]</div></div>
+      <div><div class="k">Team Leader</div><div class="v">Prakhar Singh Tomar</div></div>
       <div><div class="k">Problem Statement</div><div class="v">Digital Wealth Management</div></div>
       <div><div class="k">Theme</div><div class="v">Build · Integrate · Transform</div></div>
     </div>
@@ -122,7 +122,7 @@
     <div class="grid2" style="margin-top:20px;flex:1;">
       <div class="card soft">
         <h3>The one-line pitch</h3>
-        <p>DhanSakhi gives every IDBI customer a personal robo-advisor: one-tap <b>RBI Account Aggregator</b> consent pulls all their holdings, AI builds <b>goal-based plans</b>, every recommendation carries a plain-language <b>“why”</b>, and a <b>vernacular conversational advisor</b> (Claude) answers anything — then maps goals to real <b>IDBI + LIC</b> products.</p>
+        <p>DhanSakhi gives every IDBI customer a personal robo-advisor: one-tap <b>RBI Account Aggregator</b> consent pulls all their holdings, AI builds <b>goal-based plans</b>, every recommendation carries a plain-language <b>“why”</b>, and a <b>vernacular conversational advisor</b> (Gemini) answers anything — then maps goals to real <b>IDBI + LIC</b> products.</p>
         <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
           <span class="pill teal">AA-native aggregation</span>
           <span class="pill teal">Explainable AI</span>
@@ -200,7 +200,7 @@
       </ul>
       <ul class="clean" style="justify-content:space-evenly;">
         <li><b>Explainable portfolio advice</b> — target vs current + “why” per rebalance.</li>
-        <li><b>Vernacular conversational advisor</b> — Claude, 6 languages, suitability-aware.</li>
+        <li><b>Vernacular conversational advisor</b> — Gemini, 6 languages, suitability-aware.</li>
         <li><b>IDBI + LIC cross-sell engine</b> — next-best-product mapped to goal gaps.</li>
         <li><b>Trust &amp; compliance layer</b> — SEBI guardrails, DPDP consent, no-PII badge.</li>
         <li><b>Cross-sell ROI model</b> — benchmark-anchored revenue projection for the bank.</li>
@@ -275,11 +275,12 @@
       <div class="archrow">
         <div class="box"><div class="bt">AA Connector <span class="note">(simulated)</span></div><div class="bd">FIP→FIU consent artefact, encrypted pulls, auto-refresh.</div></div>
         <div class="box"><div class="bt">Recommendation Engine</div><div class="bd">Deterministic TS: risk, allocation, rebalancing, SIP-to-goal, cross-sell mapping.</div></div>
-        <div class="box gold"><div class="bt">Claude API</div><div class="bd">Conversational advisor + natural-language explainability (graceful no-key fallback).</div></div>
+        <div class="box gold"><div class="bt">Gemini API</div><div class="bd">Conversational advisor + natural-language explainability (graceful no-key fallback).</div></div>
         <div class="box"><div class="bt">IDBI + LIC Catalog</div><div class="bd">FD · MF · NPS (POP) · LIC products for goal-completion.</div></div>
       </div>
       <div class="label-mid">▼ data</div>
       <div class="archrow"><div class="box"><div class="bt">Synthetic data store — no real PII</div><div class="bd">Demo personas &amp; portfolios. POC path → IDBI core banking + live AA FIU + SEBI-RIA review workflow.</div></div></div>
+      <div class="archrow" style="margin-top:2px;"><div class="box gold"><div class="bt">Security &amp; compliance, end-to-end</div><div class="bd">RBI Account Aggregator consent (data-blind, revocable) · SEBI advice/execution split with human-in-loop · DPDP-aligned consent &amp; data minimization · synthetic, no-PII · graceful degradation (works without an API key).</div></div></div>
     </div>
   </div>
   <div class="accent"></div>
@@ -293,7 +294,7 @@
     <h1 class="title">A modern, deployable, bank-ready stack</h1>
     <div class="grid3" style="margin-top:18px;flex:1;">
       <div class="card"><h3>Frontend</h3><ul class="clean"><li>Next.js 16 (App Router)</li><li>React 19 + TypeScript</li><li>Tailwind CSS v4</li><li>Recharts (visuals)</li></ul></div>
-      <div class="card"><h3>AI &amp; logic</h3><ul class="clean"><li>Claude (Opus 4.8 / Sonnet 4.6)</li><li>Anthropic SDK</li><li>Deterministic TS engine (risk, goals, rebalancing)</li><li>Explainability layer</li></ul></div>
+      <div class="card"><h3>AI &amp; logic</h3><ul class="clean"><li>Google Gemini (2.5 Flash)</li><li>Google Gen AI SDK</li><li>Deterministic TS engine (risk, goals, rebalancing)</li><li>Explainability layer</li></ul></div>
       <div class="card"><h3>Integrations &amp; infra</h3><ul class="clean"><li>RBI Account Aggregator (FIU)</li><li>IDBI core + LIC/NPS catalog</li><li>Vercel (deploy + edge)</li><li>DigiLocker/Aadhaar KYC</li></ul></div>
     </div>
     <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
@@ -315,10 +316,10 @@
         <tr><td><b>Prototype</b> (done)</td><td>This app — UI, AI advisor, simulated AA, synthetic data</td><td>Built</td><td>≈ ₹0 (open-source + free tiers)</td></tr>
         <tr><td><b>Pilot / Sandbox</b></td><td>Live AA FIU, IDBI core + LIC API integration, RIA review workflow, security review</td><td>3–4 months</td><td>₹35–55 L</td></tr>
         <tr><td><b>Production</b></td><td>Scale infra, vernacular (Bhashini), DPO/DPIA, monitoring, mobile app</td><td>6–9 months</td><td>₹1.2–1.8 Cr</td></tr>
-        <tr><td><b>Run-rate</b></td><td>Cloud + Claude API + AA consent fees + support (per active-user, scales down)</td><td>Ongoing</td><td>₹20–40 / active user / yr</td></tr>
+        <tr><td><b>Run-rate</b></td><td>Cloud + Gemini API + AA consent fees + support (per active-user, scales down)</td><td>Ongoing</td><td>₹20–40 / active user / yr</td></tr>
       </tbody>
     </table>
-    <p class="note" style="margin-top:12px;">Largely variable, usage-based costs; AA + Claude + Vercel keep fixed costs low. Payback driven by cross-sell uplift (see slide 11).</p>
+    <p class="note" style="margin-top:12px;">Largely variable, usage-based costs; AA + Gemini (free tier available) + Vercel keep fixed costs low. Payback driven by cross-sell uplift (see slide 11).</p>
   </div>
   <div class="accent"></div>
 </section>
@@ -354,7 +355,7 @@
           <tbody>
             <tr><td>360° aggregation (6–8 institutions, simulated)</td><td><b>&lt; 2 s</b></td></tr>
             <tr><td>Explainability coverage of recommendations</td><td><b>100%</b></td></tr>
-            <tr><td>Advisor reply latency (Claude / fallback)</td><td><b>~1–3 s / &lt;50 ms</b></td></tr>
+            <tr><td>Advisor reply latency (Gemini / fallback)</td><td><b>~1–3 s / &lt;50 ms</b></td></tr>
             <tr><td>Languages supported</td><td><b>6</b></td></tr>
             <tr><td>Uptime without API key (graceful fallback)</td><td><b>100%</b></td></tr>
           </tbody>
@@ -398,11 +399,11 @@
     <span class="eyebrow">Submission links</span>
     <h1 class="title">Try it, read it, watch it</h1>
     <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px;flex:1;justify-content:center;">
-      <div class="linkbox"><div class="ic">🌐</div><div><div class="lt">Final product — live deployment</div><div class="lv">https://&lt;your-vercel-app&gt;.vercel.app</div></div></div>
-      <div class="linkbox"><div class="ic">💻</div><div><div class="lt">GitHub public repository</div><div class="lv">https://github.com/&lt;your-username&gt;/dhansakhi</div></div></div>
-      <div class="linkbox"><div class="ic">🎬</div><div><div class="lt">Demo video (3 minutes)</div><div class="lv">https://&lt;your-demo-video-link&gt;</div></div></div>
+      <div class="linkbox"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a2540" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div><div class="lt">GitHub public repository</div><div class="lv"><a href="https://github.com/tombro27/dhansakhi" style="color:inherit;text-decoration:none;">github.com/tombro27/dhansakhi</a></div></div></div>
+      <div class="linkbox"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00936b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><div class="lt">Final product — live deployment</div><div class="lv"><a href="https://idbi-innovate-26.vercel.app" style="color:inherit;text-decoration:none;">idbi-innovate-26.vercel.app</a></div></div></div>
+      <div class="linkbox"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#e6a817" stroke="none"><polygon points="6 4 20 12 6 20 6 4"/></svg></div><div><div class="lt">Demo video (3 minutes)</div><div class="lv"><a href="https://drive.google.com/file/d/1-ZobKRuBWrzYHAqD9f_Xko-KFBlIHDsC/view?usp=sharing" style="color:inherit;text-decoration:none;">drive.google.com/file/d/1-ZobKRuBWrzYHAqD9f_Xko-KFBlIHDsC</a></div></div></div>
     </div>
-    <p class="note">Replace the placeholders above with your final Vercel URL, GitHub repo, and recorded demo link before submitting.</p>
+    <p class="note">All three submission links are live — GitHub repository, deployment, and 3-minute demo video.</p>
   </div>
   <div class="accent"></div>
 </section>
@@ -417,7 +418,7 @@
     <div class="meta">
       <div><div class="k">Team</div><div class="v">Team DhanSakhi</div></div>
       <div><div class="k">Contact</div><div class="v">[email] · [phone]</div></div>
-      <div><div class="k">Built with</div><div class="v">Next.js · Claude · RBI AA</div></div>
+      <div><div class="k">Built with</div><div class="v">Next.js · Gemini · RBI AA</div></div>
     </div>
   </div>
 </section>

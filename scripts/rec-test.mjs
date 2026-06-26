@@ -1,0 +1,16 @@
+import { PuppeteerScreenRecorder } from "puppeteer-screen-recorder";
+import puppeteer from "puppeteer";
+import ffmpeg from "ffmpeg-static";
+const OUT = "/tmp/claude-1000/-home-imart-indiamart-hackathons-IDBI-Innovate-26/796b5ab5-1afe-4d3a-926d-5f7a92fd8dbb/scratchpad/rectest.mp4";
+const browser = await puppeteer.launch({ headless: "new", args: ["--no-sandbox","--disable-setuid-sandbox"] });
+const page = await browser.newPage();
+await page.setViewport({ width: 1280, height: 720 });
+await page.goto("https://idbi-innovate-26.vercel.app/", { waitUntil: "networkidle2", timeout: 30000 });
+const rec = new PuppeteerScreenRecorder(page, { ffmpeg_Path: ffmpeg, fps: 30, videoFrame: { width: 1280, height: 720 } });
+await rec.start(OUT);
+await new Promise(r => setTimeout(r, 4000));
+await page.evaluate(() => window.scrollBy({ top: 600, behavior: "smooth" }));
+await new Promise(r => setTimeout(r, 2000));
+await rec.stop();
+await browser.close();
+console.log("recorded:", OUT, "ffmpeg:", ffmpeg);

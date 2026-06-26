@@ -28,6 +28,6 @@ export async function POST(req: NextRequest) {
   ];
 
   const reply = await complete({ system, messages, model: MODELS.reasoning, maxTokens: 400, temperature: 0.4 });
-  if (reply) return NextResponse.json({ reply, source: "claude" });
+  if (reply) return NextResponse.json({ reply, source: "gemini" });
   return NextResponse.json({ reply: fallbackExplain(ctx, language), source: "fallback" });
 }

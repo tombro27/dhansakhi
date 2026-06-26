@@ -83,7 +83,7 @@ export function AdvisorChat() {
             <div className="text-[11px] text-ink-300">Speaking in {languageLabel(language)}</div>
           </div>
         </div>
-        <Badge tone="teal"><Bot className="h-3.5 w-3.5" /> Claude-powered</Badge>
+        <Badge tone="teal"><Bot className="h-3.5 w-3.5" /> Gemini-powered</Badge>
       </div>
 
       {/* Messages */}
@@ -158,7 +158,7 @@ function Bubble({ m, persona }: { m: UIMessage; persona: { name: string; avatarC
       <div className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${isUser ? "bg-navy-900 text-white" : "bg-mist-100 text-ink-900"}`}>
         <span className="whitespace-pre-line">{renderText(m.content)}</span>
         {!isUser && m.source && m.source !== "intro" && (
-          <div className="mt-1 text-[10px] text-ink-500">{m.source === "claude" ? "Claude" : "Demo response"}</div>
+          <div className="mt-1 text-[10px] text-ink-500">{m.source === "gemini" ? "Gemini" : "Demo response"}</div>
         )}
       </div>
     </div>

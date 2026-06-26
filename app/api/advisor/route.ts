@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
   });
 
   if (reply) {
-    return NextResponse.json({ reply, source: "claude" });
+    return NextResponse.json({ reply, source: "gemini" });
   }
 
   const lastUser = [...messages].reverse().find((m) => m.role === "user");

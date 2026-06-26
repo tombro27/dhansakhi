@@ -22,7 +22,7 @@ const USPS = [
   {
     icon: Sparkles,
     title: "Explainable AI advice",
-    body: "Every recommendation ships a Claude-generated, profile-linked “why this, why now” rationale — in plain language. Beats black-box curation and satisfies SEBI's transparency direction.",
+    body: "Every recommendation ships a Gemini-generated, profile-linked “why this, why now” rationale — in plain language. Beats black-box curation and satisfies SEBI's transparency direction.",
   },
   {
     icon: Wallet,
@@ -82,7 +82,7 @@ export default function Landing() {
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
           <div className="animate-fadeup">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-teal-400">
-              <Sparkles className="h-3.5 w-3.5" /> AI Robo-Advisor · Powered by Claude
+              <Sparkles className="h-3.5 w-3.5" /> AI Robo-Advisor · Powered by Gemini
             </span>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight md:text-5xl">
               The <span className="text-gradient-teal">wealth friend</span> every IDBI customer deserves.
@@ -241,7 +241,7 @@ export default function Landing() {
             <Image src="/logo.svg" alt="DhanSakhi" width={22} height={22} />
             <span>DhanSakhi · Built for IDBI Innovate 2026</span>
           </div>
-          <div>Next.js · Claude · RBI Account Aggregator (simulated) · Synthetic data, no real PII</div>
+          <div>Next.js · Gemini · RBI Account Aggregator (simulated) · Synthetic data, no real PII</div>
         </div>
       </footer>
     </div>

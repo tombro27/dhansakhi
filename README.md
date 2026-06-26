@@ -9,7 +9,7 @@
 An **Account-Aggregator-native, explainable, vernacular** AI wealth co-pilot.
 Built for **IDBI Innovate 2026 · Digital Wealth Management** track.
 
-[Live demo](#) · [Pitch deck (PDF)](deck/DhanSakhi_IDBI_Innovate_Submission.pdf) · [Blueprint](docs/BLUEPRINT.md)
+**[▶ Live demo](https://idbi-innovate-26.vercel.app)** · [Demo video](https://drive.google.com/file/d/1-ZobKRuBWrzYHAqD9f_Xko-KFBlIHDsC/view?usp=sharing) · [Pitch deck (PDF)](deck/DhanSakhi_IDBI_Innovate_Submission.pdf) · [Blueprint](docs/BLUEPRINT.md)
 
 </div>
 
@@ -28,7 +28,7 @@ DhanSakhi gives every IDBI customer a personal robo-advisor:
 1. **One-tap RBI Account Aggregator consent** pulls *all* their holdings — bank, mutual funds, demat, EPF, NPS, insurance — no CAS/PDF uploads.
 2. **AI risk-profiles** them and builds **goal-based plans** (retirement, education, home, emergency).
 3. **Explainable AI advice** — every recommendation and rebalance ships a plain-language *"why this, why now"*.
-4. A **vernacular conversational advisor** (Claude) answers anything, in **6 languages**.
+4. A **vernacular conversational advisor** (Google Gemini) answers anything, in **6 languages**.
 5. An **IDBI + LIC cross-sell engine** maps goals to real products (FD, MF, NPS via IDBI POP, LIC insurance/annuity) — as goal-completion, not push-selling.
 
 > **The wedge no one owns:** standalone apps are smart-but-not-trusted; bank apps are trusted-but-shallow. DhanSakhi is both — AA-native aggregation + explainable AI + vernacular advice + bank-grade IDBI/LIC products.
@@ -55,7 +55,7 @@ Customer (web/mobile, inside IDBI net-banking)
 Next.js 16 App Router (Vercel) — React 19 · Tailwind v4 · Recharts
         │ server route handlers
  ┌───────────────┬────────────────────┬────────────────────┬─────────────────┐
- │ AA Connector  │ Recommendation     │ Claude API          │ IDBI + LIC      │
+ │ AA Connector  │ Recommendation     │ Gemini API          │ IDBI + LIC      │
  │ (simulated    │ Engine (TS:        │ (advisor +          │ product catalog │
  │ FIP→FIU)      │ risk, alloc,       │ explainability,     │ (FD/MF/NPS/LIC) │
  │ consent       │ goals, rebalance,  │ no-key fallback)    │                 │
@@ -65,31 +65,32 @@ Next.js 16 App Router (Vercel) — React 19 · Tailwind v4 · Recharts
  Synthetic data store (no real PII)  →  POC: IDBI core + live AA FIU + SEBI-RIA review
 ```
 
-The **recommendation engine is deterministic TypeScript** (always works); **Claude** powers the
+The **recommendation engine is deterministic TypeScript** (always works); **Google Gemini** powers the
 conversational advisor and natural-language explainability, and **degrades gracefully to curated
 responses** when no API key is set — so the deployed demo never breaks.
 
 ## Tech stack
 
-Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · Recharts · Claude (Opus 4.8 / Sonnet 4.6) via
-the Anthropic SDK · Vercel · RBI Account Aggregator (simulated) · synthetic, no-PII data.
+Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · Recharts · Google Gemini (2.5 Flash) via
+the Google Gen AI SDK · Vercel · RBI Account Aggregator (simulated) · synthetic, no-PII data.
 
 ## Getting started
 
 ```bash
 npm install
-cp .env.example .env.local   # optional — add ANTHROPIC_API_KEY for live Claude
+cp .env.example .env.local   # optional — add GEMINI_API_KEY for live Gemini
 npm run dev                  # http://localhost:3000
 ```
 
 The app **runs fully without an API key** (curated fallback responses). To enable live, multilingual
-Claude advice and explainability, set `ANTHROPIC_API_KEY` in `.env.local` (or in Vercel project settings).
+Gemini advice and explainability, set `GEMINI_API_KEY` in `.env.local` (or in Vercel project settings).
+Get a free key from [Google AI Studio](https://aistudio.google.com/apikey).
 
 ```bash
-ANTHROPIC_API_KEY=sk-ant-...
+GEMINI_API_KEY=AIza...
 # optional model overrides:
-# CLAUDE_ADVISOR_MODEL=claude-sonnet-4-6
-# CLAUDE_REASONING_MODEL=claude-sonnet-4-6
+# GEMINI_ADVISOR_MODEL=gemini-2.5-flash
+# GEMINI_REASONING_MODEL=gemini-2.5-flash
 ```
 
 ## Compliance posture (designed-in)
@@ -106,7 +107,7 @@ See the in-app **Trust & Safety** page and [docs/BLUEPRINT.md](docs/BLUEPRINT.md
 ```
 app/                  # Next.js routes
   (app)/              # authed shell: dashboard, goals, advice, advisor, cross-sell, compliance, onboarding
-  api/advisor|explain # Claude-backed endpoints with deterministic fallback
+  api/advisor|explain # Gemini-backed endpoints with deterministic fallback
   page.tsx            # landing / pitch
 components/           # AppShell, charts, chat, UI primitives
 lib/                  # engine (risk/allocation/goals/cross-sell), ai, demo-context, types
@@ -123,4 +124,4 @@ IDBI/LIC) reflect publicly reported information as of early 2026.
 
 ---
 
-<div align="center"><sub>Built with Next.js · Claude · RBI Account Aggregator (simulated)</sub></div>
+<div align="center"><sub>Built with Next.js · Google Gemini · RBI Account Aggregator (simulated)</sub></div>
